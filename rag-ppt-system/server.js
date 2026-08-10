@@ -1,10 +1,13 @@
 import express from 'express';
 import multer from 'multer';
-import pdfParse from 'pdf-parse';
 import Groq from 'groq-sdk';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import { createRequire } from 'module'; // <-- Add this
+
+const require = createRequire(import.meta.url); // <-- Add this
+const pdfParse = require('pdf-parse');          // <-- Import via require
 
 dotenv.config();
 
